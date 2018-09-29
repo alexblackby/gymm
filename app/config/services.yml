@@ -1,0 +1,56 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+        exclude: '../../src/AppBundle/{Entity,Repository,Tests}'
+
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    EmailChecker\EmailChecker:
+        class: EmailChecker\EmailChecker
+
+    Vich\UploaderBundle\Naming\SubdirDirectoryNamer:
+        public: true
+
+    AppBundle\Subscriber\Doctrine\AvatarCacheSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    admin.muscles:
+        class: AppBundle\Admin\MuscleAdmin
+        arguments: [~, AppBundle\Entity\Muscle, AppBundle\Admin\MuscleController]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Мышцы, group: Каталог }
+        calls:
+            - [ setTemplate, [list, "admin/muscle/list.html.twig"]]
+        public: true
+
+    admin.trainers:
+        class: AppBundle\Admin\TrainerAdmin
+        arguments: [~,AppBundle\Entity\Trainer,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Упражнения, group: Каталог }
+        public: true
+
+    admin.trainers_category:
+        class: AppBundle\Admin\TrainerCategoryAdmin
+        arguments: [~,AppBundle\Entity\TrainerCategory,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Виды упражнений, group: Каталог }
+        calls:
+            - [ addChild, ['@admin.trainers', 'category']]
+        public: true
+
+    admin.users:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Пользователи, group: Администрирование }
+        public: true

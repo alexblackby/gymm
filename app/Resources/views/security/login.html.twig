@@ -1,0 +1,45 @@
+{% extends 'layout/guest.html.twig' %}
+
+{% block title %}{{ sitename }}. Контроль и анализ ваших тренировок{% endblock %}
+
+{% block body %}
+
+    <div class="gm-index-panel-wrap">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+                {% include 'security/guest-logo-frame.html.twig' %}
+            </div>
+            <div class="col-md-offset-2 col-md-4">
+                <div class="guest-panel">
+                    <div class="guest-panel-header">
+                        <div class="pull-right">
+                            <strong><a href="{{ path('signup') }}">Зарегистрироваться</a></strong>
+                        </div>
+                        <div class="guest-panel-title">
+                            <strong>Вход</strong>
+                        </div>
+                    </div>
+
+                    {% if error %}
+                        <p class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                    {% endif %}
+
+                    {{ form_start(form) }}
+
+                    {{ form_row(form._username, {'label':'Email:'}) }}
+                    {{ form_row(form._password, {'label':'Пароль:'}) }}
+                    {{ form_row(form.login_submit, { 'label': 'Войти', 'attr': {'class':'guest-btn'} }) }}
+
+                    {{ form_end(form) }}
+
+                    <div class="guest-panel-footer">
+                        <p>Если у вас еще нет аккаунта, можете <a href="{{ path('signup') }}">зарегистрироваться</a></p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

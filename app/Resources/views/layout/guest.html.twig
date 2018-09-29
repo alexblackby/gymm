@@ -1,0 +1,32 @@
+{% extends 'layout/common.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/guest.css') }}">
+{% endblock %}
+
+{% block topmenu %}
+    <ul class="header-nav">
+        {% if app.request.pathinfo == path('login') %}
+            <li><a href="{{ path('signup') }}">Зарегистрироваться</a></li>
+        {% else %}
+            <li><a href="{{ path('login') }}">Войти</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block layout %}
+    <div class="guest-container">
+        {% block body %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/app.js') }}"></script>
+    <script defer src="/js/fontawesome/fontawesome.min.js"></script>
+{% endblock %}
+
+{% block fonts %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+{% endblock %}

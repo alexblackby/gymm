@@ -1,0 +1,78 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}{{ sitename }}. Настройки{% endblock %}
+
+{% block body %}
+
+    <h1>Настройки</h1>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Аватар</h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="avatar-thumb">
+                                <img src="{{ thumbnail(user, 'avatar') }}"/>
+                            </div>
+                            {% if user.avatarName %}
+                                {{ form_start(avatarDeleteForm) }}
+                                {{ form_widget(avatarDeleteForm.deleteAvatar, { 'label': 'Удалить аватар', 'attr':{'class':'btn-default w100'} } ) }}
+                                {{ form_end(avatarDeleteForm) }}
+                            {% endif %}
+                        </div>
+
+
+                        <div class="col-md-9">
+                            {{ form_start(avatarForm) }}
+                            {{ form_errors(avatarForm) }}
+                            {{ form_row(avatarForm.avatar, { 'label': 'Выберите фото',  }) }}
+                            {{ form_widget(avatarForm.saveAvatar, { 'label': 'Загрузить аватар' } ) }}
+                            {{ form_end(avatarForm) }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Смена email</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(changeEmailForm) }}
+                    {{ form_errors(changeEmailForm) }}
+                    {{ form_row(changeEmailForm.email) }}
+                    {{ form_row(changeEmailForm.save, { 'label': 'Изменить email' } ) }}
+                    {{ form_end(changeEmailForm) }}
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Смена пароля</h3>
+                </div>
+                <div class="panel-body">
+                    {{ form_start(changePasswordForm) }}
+                    {{ form_errors(changePasswordForm) }}
+                    {{ form_row(changePasswordForm.old_password) }}
+                    {{ form_row(changePasswordForm.new_password) }}
+                    {{ form_row(changePasswordForm.save, { 'label': 'Изменить пароль' } ) }}
+                    {{ form_end(changePasswordForm) }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

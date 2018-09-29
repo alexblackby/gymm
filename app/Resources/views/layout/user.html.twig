@@ -1,0 +1,39 @@
+{% extends 'layout/common.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+{% endblock %}
+
+{% block topmenu %}
+    <div class="dropdown pull-right">
+        <button class="gm-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="true">
+            <i class="fas fa-bars fa-lg"></i>
+            <span>Меню</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+            <li><a href="{{ path('settings') }}"><span class="glyphicon glyphicon-cog"></span> Настройки</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Выйти</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block layout %}
+    <div class="container">
+        {% include 'service/flash.html.twig' %}
+        {% block body %}{% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script defer src="/js/fontawesome/fa-solid.js"></script>
+{% endblock %}
+
+{% block fonts %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Asap|Open+Sans&amp;subset=cyrillic" rel="stylesheet">
+{% endblock %}

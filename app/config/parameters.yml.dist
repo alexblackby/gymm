@@ -1,0 +1,13 @@
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: app
+    database_user: user
+    database_password: pwd
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: somesecret
+    jwt_key_pass_phrase: xxx
+    sitename: gymm

@@ -1,0 +1,44 @@
+{% extends 'layout/guest.html.twig' %}
+
+{% block title %}{{ sitename }}. Регистрация{% endblock %}
+
+{% block body %}
+
+    <div class="gm-index-panel-wrap">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+                {% include 'security/guest-logo-frame.html.twig' %}
+            </div>
+
+            <div class="col-md-offset-2 col-md-4">
+                <div class="guest-panel">
+                    <div class="guest-panel-header">
+                        <div class="pull-right">
+
+                        </div>
+                        <div class="guest-panel-title">
+                            <strong>Регистрация</strong>
+                        </div>
+                    </div>
+
+                    {{ form_start(form) }}
+
+                    {{ form_errors(form) }}
+
+                    {{ form_row(form.email, {'label':'Ваш email:'}) }}
+                    {{ form_row(form.plainPassword, {'label':'Придумайте пароль:'}) }}
+                    {{ form_row(form.signup_submit, { 'label': 'Зарегистрироваться', 'attr': {'class':'guest-btn'} }) }}
+
+                    {{ form_end(form) }}
+
+                    <div class="guest-panel-footer">
+                        Уже зарегистрированы?<br>Можете <a href="{{ path('login') }}">войти в свой аккаунт</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

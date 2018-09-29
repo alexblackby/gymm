@@ -1,0 +1,279 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background:#b51341 url(/images/guest/bg-mobile.jpg) no-repeat fixed 100% 0px;
+}
+
+
+.guest-container{
+    padding:10px 10px;
+}
+
+
+.gm-index-panel-wrap {
+    padding:10px 7px;
+}
+
+a.gm-logo, a.gm-logo:hover {
+    color:rgba(255,255,255,0.9);
+    font-size:24px;
+    text-decoration: none;
+    font-family: 'Asap', sans-serif;
+}
+
+.header-row {
+    padding:16px 20px 4px;
+}
+
+.header-nav {
+    list-style: none;
+    text-align: right;
+    margin-top:10px;
+}
+
+.header-nav li {
+    display: inline-block;
+    margin-left:20px;
+}
+
+.header-nav a, .header-nav a:hover {
+    color:rgba(255,255,255,0.75);
+    font-size:15px;
+    text-decoration: none;
+}
+.header-nav a:hover {
+    color:white;
+}
+
+.guest-panel {
+    padding: 20px 20px 30px;
+    background:rgba(110,16,82,0.3);
+    color:rgba(255,255,255,0.8);
+}
+
+.guest-panel-header {
+    display: none;
+    margin-bottom: 40px;
+    color:rgba(255,255,255,0.9);
+}
+
+.guest-panel-title {
+    font-size: 20px;
+}
+
+.guest-panel-footer {
+    margin-top:40px;
+}
+
+.guest-btn,
+.guest-btn:hover,
+.guest-btn:active,
+.guest-btn:focus,
+a.guest-btn
+{
+    background-color: rgb(77, 127, 218);
+    border:1px transparent;
+    border-radius: 7px;
+    color:rgba(255,255,255,0.9) !important;
+    padding: 0.6em 2em;
+    display: inline-block;
+    box-sizing: border-box;
+    outline: 0 !important;
+    outline-offset: 0 !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.guest-btn-icon {
+    padding-left: 1em !important;
+}
+
+.fb-button{
+    border:1px solid #4666af;
+    border-radius: 7px;
+    margin-top:5px;
+}
+
+.guest-panel a
+{
+    font-size: 14px;
+    font-weight: normal;
+    color:rgba(255,255,255,0.7);
+    text-decoration: underline;
+}
+.guest-panel a:hover {
+    color:white;
+}
+
+
+.guest-logo-frame{
+    margin:-20px 0 10px;
+    border-top:3px solid rgba(255,255,255,0.8);
+    padding:20px 10px;
+    color:rgba(255,255,255,0.85);
+}
+.guest-logo-title{
+    display: none;
+    font-family: 'Asap', sans-serif;
+    font-size:70px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    border-bottom: 8px solid rgba(255,255,255,0.8);
+    float: left;
+}
+.guest-logo-text{
+    font-size:16px;
+    clear: left;
+}
+
+
+.guest-error {
+    width:100%;
+    max-width: 480px;
+    margin: 20px auto;
+    color: white;
+}
+
+.guest-error a {
+    color: white;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background: #b51341 url(/images/guest/bg.jpg) no-repeat fixed 50% 50%;
+    }
+
+    .gm-index-panel-wrap {
+        padding:100px 0 50px;
+    }
+    .header-row {
+        padding:16px 40px;
+    }
+
+    .guest-container{
+        padding:50px 40px;
+    }
+
+    .guest-logo-frame{
+        margin-top:50px;
+        border:8px solid rgba(255,255,255,0.8);
+        padding:30px;
+        max-width: 520px;
+    }
+
+    .guest-logo-title {
+        display: block;
+    }
+
+    .guest-panel {
+        padding: 30px 40px;
+    }
+
+    .guest-panel-header {
+        display: block;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* bootstrap overload */
+
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: normal;
+}
+
+
+.has-error .checkbox, .has-error .checkbox-inline, .has-error.checkbox-inline label, .has-error.checkbox label, .has-error .control-label, .has-error .form-control-feedback, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.radio-inline label, .has-error.radio label
+{color:#ff605b !important;}
+
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert h4 {
+    margin-top: 0;
+    color: inherit;
+}
+.alert .alert-link {
+    font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+    margin-bottom: 0;
+}
+.alert > p + p {
+    margin-top: 5px;
+}
+.alert-dismissable,
+.alert-dismissible {
+    padding-right: 35px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+.alert-success {
+    background-color: #62c462;
+    border-color: #62bd4f;
+    color: #ffffff;
+}
+.alert-success hr {
+    border-top-color: #55b142;
+}
+.alert-success .alert-link {
+    color: #e6e6e6;
+}
+.alert-info {
+    background-color: #5bc0de;
+    border-color: #3dced8;
+    color: #ffffff;
+}
+.alert-info hr {
+    border-top-color: #2ac7d2;
+}
+.alert-info .alert-link {
+    color: #e6e6e6;
+}
+.alert-warning {
+    background-color: #f89406;
+    border-color: #e96506;
+    color: #ffffff;
+}
+.alert-warning hr {
+    border-top-color: #d05a05;
+}
+.alert-warning .alert-link {
+    color: #e6e6e6;
+}
+.alert-danger {
+    background-color: #ee5f5b;
+    border-color: #ed4d63;
+    color: #ffffff;
+}
+.alert-danger hr {
+    border-top-color: #ea364f;
+}
+.alert-danger .alert-link {
+    color: #e6e6e6;
+}

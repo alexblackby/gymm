@@ -1,0 +1,42 @@
+{% set flash_popups = app.session.flashbag.get('popup') %}
+{% if flash_popups|length>0 %}
+
+    <div id="flashModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    {% for message in flash_popups %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+
+{% set flashes = app.session.flashbag.all() %}
+{% if flashes|length>0 %}
+
+    <div class="row flash">
+        <div class="col-md-8">
+            {% for label, messages in flashes if label != 'popup' %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }} alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}
+
+

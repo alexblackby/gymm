@@ -1,0 +1,10 @@
+users:
+    type:     rest
+    resource: '@AppBundle/Controller/Api/UsersController.php'
+    prefix: /api
+
+trains:
+    type:     rest
+    parent:   users
+    resource: '@AppBundle/Controller/Api/UserTrainsControllerller.php'
+

@@ -1,0 +1,19 @@
+{% extends '@SonataAdmin/CRUD/base_list.html.twig' %}
+
+{% block table_header %}
+
+
+    {{ parent() }}
+
+    {% if app.request.query.get('parent_id') %}
+        <tbody style="border:none">
+        <tr style="background:#3c8dbc;">
+            <td style="border: none"></td>
+            <td style="border: none"><a href="{{ admin.generateUrl('list') }}" style="color:white;">&larr; назад</a>
+            </td>
+            <td style="border: none" colspan="10"></td>
+        </tr>
+        </tbody>
+    {% endif %}
+
+{% endblock %}

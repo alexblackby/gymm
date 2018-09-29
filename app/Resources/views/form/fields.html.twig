@@ -1,0 +1,42 @@
+{% use "bootstrap_3_layout.html.twig" %}
+
+{# В этом файле переопределяются стандартные шаблоны элементов форм #}
+
+{# сделаем все кнопки зелеными по умолчанию #}
+{% block button_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('btn-success') ~ ' btn')|trim}) -%}
+    {{- parent() -}}
+{%- endblock button_widget %}
+
+
+{# инпут, который принимает только картинки #}
+{% block file_image_widget %}
+    <input type="file" {{ block('widget_attributes') }} accept="image/*">
+{% endblock %}
+
+
+{#
+    ниже локализовано немного безобидного спагетти-кода,
+    решил что такая маленькая штука не обязательно должна тянуть за собой отдельные JS и CSS,
+    хотя в будущем можно вынести js/css в assets в виде модуля
+#}
+{% block password_view_widget %}
+    <div style="float:right">
+        <div style="margin-left:-25px;margin-top:34px;position: absolute;color:#777;">
+            <span class="glyphicon glyphicon-eye-close" id="password_view_toggler_{{ form.vars.id }}"
+                  onclick="password_view_toggle('{{ form.vars.id }}')"></span>
+        </div>
+    </div>
+    <script>
+        function password_view_toggle(id) {
+            if (document.getElementById(id).type == 'password') {
+                document.getElementById(id).type = 'text';
+                document.getElementById('password_view_toggler_' + id).className = 'glyphicon glyphicon-eye-open';
+            } else {
+                document.getElementById(id).type = 'password';
+                document.getElementById('password_view_toggler_' + id).className = 'glyphicon glyphicon-eye-close';
+            }
+        }
+    </script>
+    {{ block('password_widget') }}
+{% endblock %}

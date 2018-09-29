@@ -3,7 +3,7 @@ Gymm. Track your gym activity
 
 Online demo:
 --------------
-http://gymm.online
+gymm.online
 
 Technologies used:
 ------------------

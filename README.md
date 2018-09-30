@@ -3,7 +3,7 @@ Gymm. Track your gym activity
 
 Online demo:
 --------------
-gymm.online (no active link because i use AWS Free Tier, and crawlers "eat" my quota)
+gymm.online
 
 Technologies used:
 ------------------
